@@ -61,6 +61,7 @@ func Provider() terraform.ResourceProvider {
 			"ovh_publiccloud_private_network":        resourcePublicCloudPrivateNetwork(),
 			"ovh_publiccloud_private_network_subnet": resourcePublicCloudPrivateNetworkSubnet(),
 			"ovh_publiccloud_user":                   resourcePublicCloudUser(),
+			"ovh_publiccloud_failover_ip":            resourcePublicCloudFailoverIp(),
 		},
 
 		ConfigureFunc: configureProvider,
