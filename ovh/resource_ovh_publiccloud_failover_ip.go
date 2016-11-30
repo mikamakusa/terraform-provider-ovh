@@ -50,7 +50,7 @@ func resourcePublicCloudFailoverIp() *schema.Resource {
 				Type:        schema.TypeString,
 				Required:    true,
 				ForceNew:    true,
-				DefaultFunc: schema.EnvDefaultFunc("OVH_PUBLIC_CLOUD_PROJECT_ID", ""),
+				DefaultFunc: schema.EnvDefaultFunc("OVH_PROJECT_ID", ""),
 			},
 		},
 	}
