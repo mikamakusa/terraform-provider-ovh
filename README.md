@@ -44,17 +44,8 @@ resource "ovh_publiccloud_private_network_subnet" "mysubnet" {
   no_gateway = false
 }
 
-resource "ovh_publiccloud_user" "terraform" {
+resource "ovh_publiccloud_user" "myuser" {
   project_id  = "${ovh_publiccloud_private_network.mynetwork.project_id}"
   description = "my openstack user"
 }
-
-provider "openstack" {
-  user_name   = "${ovh_publiccloud_user.terraform.username}"
-  password    = "${ovh_publiccloud_user.terraform.password}"
-  tenant_name = "${ovh_publiccloud_user.terraform.openstack_rc.OS_TENANT_NAME}"
-  tenant_id   = "${ovh_publiccloud_user.terraform.openstack_rc.OS_TENANT_ID}"
-  auth_url    = "${ovh_publiccloud_user.terraform.openstack_rc.OS_AUTH_URL}"
-}
-
 ```
