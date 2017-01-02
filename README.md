@@ -49,3 +49,17 @@ resource "ovh_publiccloud_user" "myuser" {
   description = "my openstack user"
 }
 ```
+
+* Working on plugin with Docker
+
+```bash
+alias dtfdev="docker run -it --rm -v $(pwd)/vendor:/go/src -v $(pwd):/go/src/github.com/goblain/terraform-provider-ovh -w /go/src/github.com/goblain/terraform-provider-ovh golang"
+dtfdev go get github.com/hashicorp/terraform/terraform
+dtfdev go get github.com/ovh/go-ovh/ovh
+dtfdev go build
+```
+
+* OVH Credentials
+
+To get access to API you need to create a token on https://eu.api.ovh.com/createToken/ 
+
