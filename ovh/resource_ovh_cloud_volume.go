@@ -53,8 +53,8 @@ func resourceCloudVolume() *schema.Resource {
 			},
 			"volume_id": {
 				Type:     schema.TypeString,
-				Optional: true,
-				ForceNew: true,
+				Computed: true,
+				Required: false,
 			},
 		},
 	}
@@ -78,9 +78,9 @@ func resourceCloudVolumeCreate(d *schema.ResourceData, meta interface{}) error {
 	endpoint := fmt.Sprintf("/cloud/project/%s/volume", d.Get("project").(string))
 	response := cloudInstance{}
 	request := cloudVolume{
-		Region:   d.Get("region"),
-		Size:     d.Get("size"),
-		Type:     d.Get("type"),
+		Region:   d.Get("region").(string),
+		Size:     d.Get("size").(int),
+		Type:     d.Get("type").(string),
 		Bootable: false,
 	}
 

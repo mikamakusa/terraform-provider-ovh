@@ -32,13 +32,9 @@ func Provider() terraform.ResourceProvider {
 		},
 
 		ResourcesMap: map[string]*schema.Resource{
-			"ovh_vrack_publiccloud_attachment":       resourceVRackPublicCloudAttachment(),
-			"ovh_publiccloud_private_network":        resourcePublicCloudPrivateNetwork(),
-			"ovh_publiccloud_private_network_subnet": resourcePublicCloudPrivateNetworkSubnet(),
-			"ovh_publiccloud_user":                   resourcePublicCloudUser(),
-			"ovh_publiccloud_failover_ip":            resourcePublicCloudFailoverIp(),
-			"ovh_ip_loadbalancing":                   resourceIpLoadbalancing(),
-			"ovh_ip_loadbalancing_backend":           resourceIpLoadbalancingBackend(),
+			"ovh_cloud_instance":           resourceCloudInstance(),
+			"ovh_cloud_volume":             resourceCloudVolume(),
+			"ovh_ip_loadbalancing_backend": resourceIpLoadbalancingBackend(),
 		},
 
 		ConfigureFunc: configureProvider,

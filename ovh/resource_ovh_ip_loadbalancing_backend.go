@@ -89,9 +89,9 @@ func resourceIpLoadbalancingBackendCreate(d *schema.ResourceData, meta interface
 	                log.Printf("[DEBUG] Pending Task id %d on ip loadbalancing backend %s status: %s", r.Id, serviceName, r.Status)
 	                return response.Id, r.Status, nil
 	        },
-                Timeout:    10 * time.Minute,
-                Delay:      10 * time.Second,
-                MinTimeout: 3 * time.Second,
+                Timeout:    15 * time.Minute,
+                Delay:      15 * time.Second,
+                MinTimeout: 5 * time.Second,
         }
 
         _, err = stateConf.WaitForState()
